@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reports - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li class="active"><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>📋 Report Scam</h1>
+
+        <div class="card glass">
+          <h2>Submit Scam Report</h2>
+          <form id="reportForm">
+            <div class="form-group">
+              <label for="scamTitle">Scam Title:</label>
+              <input type="text" id="scamTitle" placeholder="Brief title of the scam" required />
+            </div>
+
+            <div class="form-group">
+              <label for="scamCategory">Category:</label>
+              <select id="scamCategory" required>
+                <option value="">Select a category</option>
+                <option value="phishing">🎣 Phishing</option>
+                <option value="fake-store">🛍️ Fake Store</option>
+                <option value="investment">💰 Investment Fraud</option>
+                <option value="romance">💔 Romance Scam</option>
+                <option value="tech-support">🔧 Tech Support</option>
+                <option value="lottery">🎰 Lottery Scam</option>
+                <option value="identity">👤 Identity Theft</option>
+                <option value="other">❓ Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="scamDescription">Description:</label>
+              <textarea id="scamDescription" placeholder="Detailed description of the scam" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="scamEvidence">Upload Evidence (Image/Screenshot):</label>
+              <input type="file" id="scamEvidence" accept="image/*" />
+            </div>
+
+            <div class="form-group">
+              <label for="scamContact">Your Contact (Email/Phone):</label>
+              <input type="text" id="scamContact" placeholder="Optional - for follow-up" />
+            </div>
+
+            <button type="submit" class="btn primary">📤 Submit Report</button>
+          </form>
+        </div>
+
+        <div class="card glass">
+          <h2>Your Submitted Reports</h2>
+          <table id="userReportsTable" class="reports-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="userReportsBody">
+              <tr>
+                <td colspan="5" class="placeholder">No reports submitted</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card glass">
+          <h2>Report Status Tracking</h2>
+          <div id="reportTracking" class="tracking-list">
+            <p class="placeholder">No reports to track</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="reportDetailModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Report Details & Admin Response</h2>
+        <div id="modalReportDetails"></div>
+        <div id="adminResponseSection" class="admin-response">
+          <h3>Admin Response</h3>
+          <p id="adminResponse" class="placeholder">No response yet</p>
+        </div>
+        <button class="btn secondary" onclick="closeModal()">Close</button>
+      </div>
+    </div><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/reports.js"></script>
+  </body>
+</html>
+

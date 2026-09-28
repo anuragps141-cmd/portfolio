@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Email Header Analyzer - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li class="active"><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>📧 Email Header Analyzer</h1>
+
+        <div class="card glass">
+          <h2>Analyze Email Headers</h2>
+          <form id="emailHeaderForm">
+            <div class="form-group">
+              <label for="emailHeaderInput">Paste Email Header:</label>
+              <textarea id="emailHeaderInput" placeholder="Paste raw email header here..." rows="10"></textarea>
+            </div>
+            <button type="submit" class="btn primary">🔍 Analyze Header</button>
+          </form>
+        </div>
+
+        <div id="emailResult" class="analysis-result hidden">
+          <div class="card glass result-card">
+            <h2>Email Analysis Results</h2>
+
+            <div class="grid two-columns">
+              <div class="info-box">
+                <h3>👤 Sender Information</h3>
+                <table id="senderInfo">
+                  <tr>
+                    <td class="label">From:</td>
+                    <td id="senderEmail">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Reply-To:</td>
+                    <td id="replyTo">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Return-Path:</td>
+                    <td id="returnPath">—</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="info-box">
+                <h3>🌐 Domain Information</h3>
+                <table id="emailDomainInfo">
+                  <tr>
+                    <td class="label">Sender Domain:</td>
+                    <td id="senderDomain">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Domain Match:</td>
+                    <td id="domainMatch">—</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="grid three-columns">
+              <div class="info-box">
+                <h3>🔐 SPF Check</h3>
+                <div id="spfStatus" class="status-box">
+                  <p class="placeholder">Not analyzed</p>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h3>🔑 DKIM Check</h3>
+                <div id="dkimStatus" class="status-box">
+                  <p class="placeholder">Not analyzed</p>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h3>📋 DMARC Check</h3>
+                <div id="dmarcStatus" class="status-box">
+                  <p class="placeholder">Not analyzed</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <h3>⚠️ Suspicious Routing Detection</h3>
+              <ul id="routingIssues" class="indicators-list">
+                <li class="placeholder">No suspicious routing detected</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>🚨 Spam Indicators</h3>
+              <ul id="spamIndicators" class="indicators-list">
+                <li class="placeholder">No spam indicators</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>✅ Security Recommendations</h3>
+              <ul id="emailRecommendations" class="recommendations-list">
+                <li class="placeholder">No recommendations available</li>
+              </ul>
+            </div>
+
+            <div class="risk-meter">
+              <div class="meter-label">Email Trustworthiness</div>
+              <div class="meter-bar">
+                <div id="emailTrustMeterFill" class="meter-fill"></div>
+              </div>
+              <div id="emailTrustPercentage" class="meter-value">0%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/email-header.js"></script>
+  </body>
+</html>
+

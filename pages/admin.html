@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin Panel - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li class="active"><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>⚙️ Admin Control Panel</h1>
+
+        <div id="adminLoginForm" class="card glass hidden">
+          <h2>Admin Access Required</h2>
+          <form id="adminLoginFormElement">
+            <div class="form-group">
+              <label for="adminCode">Admin Code:</label>
+              <input type="password" id="adminCode" placeholder="Enter admin code" required />
+            </div>
+            <button type="submit" class="btn primary">Verify Access</button>
+          </form>
+        </div>
+
+        <div id="adminPanel" class="hidden">
+          <div class="stats-grid">
+            <div class="stat-card glass">
+              <h3>Total Users</h3>
+              <p id="totalUsers" class="stat-number">0</p>
+            </div>
+            <div class="stat-card glass">
+              <h3>Reports This Month</h3>
+              <p id="monthlyReports" class="stat-number">0</p>
+            </div>
+            <div class="stat-card glass">
+              <h3>Community Reports</h3>
+              <p id="communityCount" class="stat-number">0</p>
+            </div>
+            <div class="stat-card glass">
+              <h3>Admin Users</h3>
+              <p id="adminCount" class="stat-number">0</p>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <h2>Analytics</h2>
+            <div class="analytics-grid">
+              <div class="chart-container">
+                <h3>Scam Reports by Category</h3>
+                <canvas id="categoriesChart"></canvas>
+              </div>
+              <div class="chart-container">
+                <h3>Analysis Types Used</h3>
+                <canvas id="analysisChart"></canvas>
+              </div>
+              <div class="chart-container">
+                <h3>Risk Level Distribution</h3>
+                <canvas id="riskChart"></canvas>
+              </div>
+              <div class="chart-container">
+                <h3>Daily Activity</h3>
+                <canvas id="activityChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="users">👥 Users</button>
+            <button class="tab-btn" data-tab="reports">📋 Reports</button>
+            <button class="tab-btn" data-tab="articles">📚 Articles</button>
+            <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
+          </div>
+
+          <div id="usersTab" class="tab-content active">
+            <div class="card glass">
+              <h2>User Management</h2>
+              <table id="usersTable" class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Joined</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="usersBody">
+                  <tr>
+                    <td colspan="5" class="placeholder">Loading users...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="reportsTab" class="tab-content hidden">
+            <div class="card glass">
+              <h2>Report Management</h2>
+              <div class="filter-buttons">
+                <button class="filter-btn active" data-status="all">All</button>
+                <button class="filter-btn" data-status="pending">⏳ Pending</button>
+                <button class="filter-btn" data-status="approved">✅ Approved</button>
+                <button class="filter-btn" data-status="rejected">❌ Rejected</button>
+              </div>
+              <table id="reportsTable" class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Submitted</th>
+                    <th>Risk Level</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="reportsBody">
+                  <tr>
+                    <td colspan="6" class="placeholder">Loading reports...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="articlesTab" class="tab-content hidden">
+            <div class="card glass">
+              <h2>Education Articles Management</h2>
+              <button class="btn primary" id="addArticleBtn">➕ Add New Article</button>
+              <table id="articlesTable" class="admin-table" style="margin-top: 20px">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Published</th>
+                    <th>Views</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="articlesBody">
+                  <tr>
+                    <td colspan="5" class="placeholder">Loading articles...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="settingsTab" class="tab-content hidden">
+            <div class="card glass">
+              <h2>System Settings</h2>
+              <form id="adminSettingsForm">
+                <div class="form-group">
+                  <label for="siteName">Site Name:</label>
+                  <input type="text" id="siteName" placeholder="ScamGuard Portal" value="ScamGuard Portal" />
+                </div>
+
+                <div class="form-group">
+                  <label for="reportThreshold">Report Alert Threshold:</label>
+                  <input type="number" id="reportThreshold" value="5" min="1" />
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="maintenanceMode" />
+                    Enable Maintenance Mode
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="publicReports" checked />
+                    Allow Public Report Submissions
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label for="maxFileSize">Max File Size (MB):</label>
+                  <input type="number" id="maxFileSize" value="10" min="1" />
+                </div>
+
+                <button type="submit" class="btn primary">Save Settings</button>
+              </form>
+            </div>
+          </div>
+
+          <button class="btn secondary" id="logoutBtn">Logout</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="reportDetailModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalReportTitle"></h2>
+        <div id="modalReportDetails"></div>
+
+        <div class="admin-actions">
+          <button class="btn secondary" id="approveReportBtn">✅ Approve</button>
+          <button class="btn secondary" id="rejectReportBtn">❌ Reject</button>
+          <button class="btn secondary" onclick="closeReportModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="articleFormModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add New Article</h2>
+        <form id="articleForm">
+          <div class="form-group">
+            <label for="articleTitle">Title:</label>
+            <input type="text" id="articleTitle" placeholder="Article title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="articleCategory">Category:</label>
+            <select id="articleCategory" required>
+              <option value="phishing">Phishing</option>
+              <option value="investment">Investment Scams</option>
+              <option value="romance">Romance Scams</option>
+              <option value="tech">Tech Support</option>
+              <option value="protection">Protection Tips</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="articleContent">Content:</label>
+            <textarea id="articleContent" placeholder="Article content..." rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="btn primary">Publish Article</button>
+        </form>
+      </div>
+    </div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/admin.js"></script>
+  </body>
+</html>
+

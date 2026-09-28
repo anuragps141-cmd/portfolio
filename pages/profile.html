@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>User Profile - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li class="active"><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>👤 User Profile</h1>
+
+        <div class="profile-container">
+          <div class="card glass">
+            <h2>Profile Information</h2>
+            <form id="profileForm">
+              <div class="form-group">
+                <label for="displayName">Full Name:</label>
+                <input type="text" id="displayName" placeholder="Your full name" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="your@email.com" disabled />
+                <small>Email address cannot be changed</small>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" />
+              </div>
+
+              <div class="form-group">
+                <label for="bio">Bio:</label>
+                <textarea id="bio" placeholder="Tell us about yourself..." rows="3"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" placeholder="Your country" />
+              </div>
+
+              <button type="submit" class="btn primary">💾 Save Profile</button>
+            </form>
+          </div>
+
+          <div class="card glass">
+            <h2>🔐 Security</h2>
+
+            <div class="security-section">
+              <h3>Change Password</h3>
+              <form id="passwordForm">
+                <div class="form-group">
+                  <label for="currentPassword">Current Password:</label>
+                  <input type="password" id="currentPassword" placeholder="Enter current password" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="newPassword">New Password:</label>
+                  <input type="password" id="newPassword" placeholder="Enter new password" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password:</label>
+                  <input type="password" id="confirmPassword" placeholder="Confirm new password" required />
+                </div>
+
+                <button type="submit" class="btn primary">Update Password</button>
+              </form>
+            </div>
+
+            <div class="security-section">
+              <h3>Two-Factor Authentication (2FA)</h3>
+              <p id="twoFAStatus">Status: <span class="badge">Disabled</span></p>
+              <button class="btn secondary" id="enable2FABtn">Enable 2FA</button>
+            </div>
+
+            <div class="security-section">
+              <h3>Active Sessions</h3>
+              <p id="sessionInfo">Current Session Active</p>
+              <button class="btn secondary" id="logoutAllBtn">Logout All Sessions</button>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <h2>⚙️ Settings</h2>
+            <form id="settingsForm">
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="emailNotifications" checked />
+                  Email Notifications
+                </label>
+                <small>Receive alerts about important security updates</small>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="pushNotifications" />
+                  Push Notifications
+                </label>
+                <small>Receive push notifications for new scam alerts</small>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="reportNotifications" checked />
+                  Report Updates
+                </label>
+                <small>Get notified when your reports are reviewed</small>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="communityUpdates" />
+                  Community Updates
+                </label>
+                <small>Receive community scam database updates</small>
+              </div>
+
+              <div class="form-group">
+                <label for="language">Language Preference:</label>
+                <select id="language">
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="ja">Japanese</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn primary">Save Settings</button>
+            </form>
+          </div>
+
+          <div class="card glass">
+            <h2>📊 Activity Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-card glass">
+                <h3>URLs Analyzed</h3>
+                <p id="urlCount" class="stat-number">0</p>
+              </div>
+              <div class="stat-card glass">
+                <h3>Messages Checked</h3>
+                <p id="messageCount" class="stat-number">0</p>
+              </div>
+              <div class="stat-card glass">
+                <h3>Images Scanned</h3>
+                <p id="imageCount" class="stat-number">0</p>
+              </div>
+              <div class="stat-card glass">
+                <h3>Reports Submitted</h3>
+                <p id="reportCount" class="stat-number">0</p>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 20px">📈 Recent Scan History</h3>
+            <table id="scanHistoryTable" class="scan-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Content</th>
+                  <th>Risk Level</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="scanHistoryBody">
+                <tr>
+                  <td colspan="5" class="placeholder">Loading scan history...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card glass danger-zone">
+            <h2>⚠️ Danger Zone</h2>
+            <p>These actions cannot be undone. Please be careful.</p>
+
+            <div class="danger-section">
+              <h3>Delete Account</h3>
+              <p>Permanently delete your account and all associated data.</p>
+              <button class="btn danger" id="deleteAccountBtn">Delete My Account</button>
+            </div>
+
+            <div class="danger-section">
+              <h3>Download Your Data</h3>
+              <p>Download all your data in a portable format.</p>
+              <button class="btn secondary" id="downloadDataBtn">Download My Data</button>
+            </div>
+
+            <div class="danger-section">
+              <h3>Export Reports</h3>
+              <p>Export all your submitted reports as CSV.</p>
+              <button class="btn secondary" id="exportReportsBtn">Export Reports</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="deleteConfirmModal" class="modal hidden">
+      <div class="modal-content danger">
+        <span class="close">&times;</span>
+        <h2>⚠️ Delete Account</h2>
+        <p>This action is permanent and cannot be undone. All your data will be deleted.</p>
+        <p>Type your email address to confirm deletion:</p>
+
+        <input type="email" id="deleteConfirmEmail" placeholder="your@email.com" style="width: 100%; padding: 10px; margin: 15px 0; border: 1px solid var(--border-color); border-radius: 8px;" />
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+          <button class="btn danger" id="confirmDeleteBtn">Yes, Delete My Account</button>
+          <button class="btn secondary" onclick="closeDeleteModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="twoFAModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Enable Two-Factor Authentication</h2>
+
+        <div style="margin: 20px 0;">
+          <h3>Step 1: Scan with Authenticator App</h3>
+          <p>Use an authenticator app like Google Authenticator, Microsoft Authenticator, or Authy to scan:</p>
+          <div style="text-align: center; padding: 20px; background: var(--bg-secondary); border-radius: 8px;">
+            <p>[QR Code would appear here]</p>
+          </div>
+        </div>
+
+        <div style="margin: 20px 0;">
+          <h3>Step 2: Enter Verification Code</h3>
+          <input type="text" id="twoFACode" placeholder="000000" maxlength="6" style="width: 150px; padding: 10px; font-size: 20px; text-align: center;" />
+        </div>
+
+        <div style="margin: 20px 0;">
+          <h3>Backup Codes</h3>
+          <p>Save these codes in a safe place. You can use them if you lose access to your authenticator.</p>
+          <textarea id="backupCodes" readonly rows="4" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px;"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+          <button class="btn primary" id="confirm2FABtn">Enable 2FA</button>
+          <button class="btn secondary" onclick="close2FAModal()">Cancel</button>
+        </div>
+      </div>
+    </div><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/profile.js"></script>
+  </body>
+</html>
+

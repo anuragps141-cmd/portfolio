@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dashboard - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li class="active"><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <section class="dashboard">
+          <div class="welcome card glass">
+            <h2>Welcome back, <span id="username">Guest</span></h2>
+            <p>Your personalized scam detection hub.</p>
+          </div>
+
+          <div class="stats grid">
+            <div class="card glass stat">
+              <h3>Total Scans</h3>
+              <div class="value" id="totalScans">0</div>
+            </div>
+            <div class="card glass stat">
+              <h3>Scam Alerts</h3>
+              <div class="value danger" id="scamAlerts">0</div>
+            </div>
+            <div class="card glass stat">
+              <h3>Risk Score</h3>
+              <div class="value" id="riskScore">—</div>
+            </div>
+            <div class="card glass stat">
+              <h3>Recent Scans</h3>
+              <div class="value" id="recentScans">—</div>
+            </div>
+          </div>
+
+          <div class="card glass url-analyzer">
+            <h3>🔍 Quick URL Scanner</h3>
+            <form id="quickUrlForm">
+              <input type="url" id="quickUrlInput" placeholder="https://example.com" required />
+              <button type="submit" class="btn primary">Analyze</button>
+            </form>
+            <div id="quickUrlResult" class="result"></div>
+          </div>
+
+          <div class="grid two-columns">
+            <div class="card glass">
+              <h3>📰 Recent Activity</h3>
+              <div id="recentActivity" class="activity-list">
+                <p class="placeholder">No recent activity</p>
+              </div>
+            </div>
+
+            <div class="card glass">
+              <h3>🛡️ Cybersecurity Tips</h3>
+              <div id="securityTips" class="tips-list">
+                <div class="tip">
+                  <h4>Check URLs Carefully</h4>
+                  <p>Always hover over links before clicking to verify the actual destination.</p>
+                </div>
+                <div class="tip">
+                  <h4>Enable 2FA</h4>
+                  <p>Two-factor authentication adds an extra layer of security to your accounts.</p>
+                </div>
+                <div class="tip">
+                  <h4>Verify Sender Identity</h4>
+                  <p>Scammers often impersonate trusted organizations. Verify directly with them.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+  </body>
+</html>
+

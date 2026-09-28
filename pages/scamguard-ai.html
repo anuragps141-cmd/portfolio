@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ScamGuard AI - Fraud Prevention Assistant</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li class="active"><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>🤖 ScamGuard AI Assistant</h1>
+
+        <div class="chat-container">
+          <div class="chat-info">
+            <h2>Your AI Fraud Prevention Assistant</h2>
+            <p>Ask me anything about scam prevention, fraud detection, or common scam types.</p>
+
+            <h3>Suggested Topics:</h3>
+            <div class="suggested-topics">
+              <button class="topic-btn" data-topic="phishing">🎣 How to Spot Phishing</button>
+              <button class="topic-btn" data-topic="investment">💰 Investment Scams</button>
+              <button class="topic-btn" data-topic="romance">💔 Romance Scams</button>
+              <button class="topic-btn" data-topic="tech">🔧 Tech Support Scams</button>
+              <button class="topic-btn" data-topic="protection">🛡️ Self Protection</button>
+              <button class="topic-btn" data-topic="reporting">📞 Report a Scam</button>
+            </div>
+
+            <button class="btn secondary" id="showEducationResources">📚 Education Resources</button>
+          </div>
+
+          <div class="chat-main">
+            <div id="chatMessages" class="chat-messages">
+              <div class="message ai-message">
+                <p>👋 Hello! I'm ScamGuard AI, your fraud prevention assistant. How can I help you today? Feel free to ask questions about common scams, how to protect yourself, or report suspicious activity.</p>
+              </div>
+            </div>
+
+            <form id="chatForm" class="chat-input-form">
+              <textarea id="userMessage" placeholder="Type your message here..." rows="3"></textarea>
+              <button type="submit" class="btn primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="educationModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>📚 Scam Prevention Education Resources</h2>
+
+        <div class="education-grid">
+          <div class="education-card">
+            <h3>🎣 Phishing Attacks</h3>
+            <ul>
+              <li>Check sender email addresses carefully</li>
+              <li>Look for generic greetings like "Dear Customer"</li>
+              <li>Verify links before clicking (hover to see actual URL)</li>
+              <li>Be suspicious of urgent requests for sensitive info</li>
+              <li>Enable two-factor authentication on accounts</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h3>💰 Investment Scams</h3>
+            <ul>
+              <li>Promises of guaranteed returns are red flags</li>
+              <li>Verify investment opportunities through official channels</li>
+              <li>Check if advisors are properly registered</li>
+              <li>Be wary of pressure to invest quickly</li>
+              <li>Research companies independently</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h3>💔 Romance Scams</h3>
+            <ul>
+              <li>Be skeptical of professions requiring overseas work</li>
+              <li>Avoid sending money to people you haven't met</li>
+              <li>Use reverse image search on photos</li>
+              <li>Video call before meeting in person</li>
+              <li>Trust your gut if something feels off</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h3>🔧 Tech Support Scams</h3>
+            <ul>
+              <li>Legitimate tech companies don't call unexpectedly</li>
+              <li>Never give remote access to strangers</li>
+              <li>Use official company support channels</li>
+              <li>Be suspicious of urgent pop-ups</li>
+              <li>Verify claims independently</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h3>🎰 Lottery Scams</h3>
+            <ul>
+              <li>You can't win what you didn't enter</li>
+              <li>Legitimate lotteries don't ask for upfront fees</li>
+              <li>Watch for poor grammar and spelling</li>
+              <li>Never provide banking info to claim prizes</li>
+              <li>Verify through official lottery websites</li>
+            </ul>
+          </div>
+
+          <div class="education-card">
+            <h3>🛡️ General Protection Tips</h3>
+            <ul>
+              <li>Keep passwords strong and unique</li>
+              <li>Update software regularly</li>
+              <li>Use reputable antivirus software</li>
+              <li>Be cautious on public WiFi</li>
+              <li>Monitor your credit reports</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="btn secondary" onclick="closeEducationModal()">Close</button>
+      </div>
+    </div><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/scamguard-ai.js"></script>
+  </body>
+</html>
+

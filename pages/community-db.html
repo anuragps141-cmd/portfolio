@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Community Database - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li class="active"><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>👥 Community Scam Database</h1>
+
+        <div class="card glass">
+          <h2>Search Known Scams</h2>
+          <form id="communitySearchForm">
+            <div class="form-group">
+              <input type="text" id="communitySearch" placeholder="Search by keywords, URL, phone..." />
+              <button type="submit" class="btn primary">🔍 Search</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card glass">
+          <h2>Filter by Category</h2>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="phishing">🎣 Phishing</button>
+            <button class="filter-btn" data-filter="fake-store">🛍️ Fake Store</button>
+            <button class="filter-btn" data-filter="investment">💰 Investment</button>
+            <button class="filter-btn" data-filter="romance">💔 Romance</button>
+            <button class="filter-btn" data-filter="tech-support">🔧 Tech Support</button>
+            <button class="filter-btn" data-filter="lottery">🎰 Lottery</button>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2>🔥 Recent Scam Alerts</h2>
+          <div id="recentAlertsContainer" class="alerts-grid">
+            <p class="placeholder">Loading recent alerts...</p>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2>📊 Popular Scam Methods</h2>
+          <div id="popularScamsContainer" class="popular-scams">
+            <p class="placeholder">Loading popular scams...</p>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2>Community Reports Database</h2>
+          <table id="communityTable" class="community-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Reports</th>
+                <th>Risk Level</th>
+                <th>Latest Report</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="communityBody">
+              <tr>
+                <td colspan="6" class="placeholder">Loading community database...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="scamDetailModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalScamTitle"></h2>
+        <div id="modalScamDetails"></div>
+
+        <div class="voting-section">
+          <h3>Was this helpful?</h3>
+          <button class="btn secondary" id="helpfulYes">👍 Yes</button>
+          <button class="btn secondary" id="helpfulNo">👎 No</button>
+        </div>
+
+        <button class="btn secondary" onclick="closeScamModal()">Close</button>
+      </div>
+    </div><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/community-db.js"></script>
+  </body>
+</html>
+

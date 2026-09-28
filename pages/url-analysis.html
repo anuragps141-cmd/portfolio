@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>URL Analysis - ScamGuard Portal</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">ScamGuard Portal</div>
+      <nav class="nav">
+        <button id="toggleTheme" class="btn">🌙 Theme</button>
+        <button id="userMenu" class="btn">👤 Profile</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li class="active"><a href="url-analysis.html">🔗 URL Analysis</a></li>
+          <li><a href="message-analysis.html">💬 Message Analysis</a></li>
+          <li><a href="image-analysis.html">🖼️ Image Analysis</a></li>
+          <li><a href="email-header.html">📧 Email Header</a></li>
+          <li><a href="reports.html">📋 Reports</a></li>
+          <li><a href="community-db.html">👥 Community DB</a></li>
+          <li><a href="scamguard-ai.html">🤖 ScamGuard AI</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <h1>🔗 URL Scam Detection</h1>
+
+        <div class="card glass">
+          <h2>Analyze URL for Scams</h2>
+          <form id="urlAnalysisForm">
+            <div class="form-group">
+              <label for="urlInput">Enter URL:</label>
+              <input type="url" id="urlInput" placeholder="https://example.com" required />
+            </div>
+            <button type="submit" class="btn primary">🔍 Analyze URL</button>
+          </form>
+        </div>
+
+        <div id="analysisResult" class="analysis-result hidden">
+          <div class="card glass result-card">
+            <h2>Analysis Results</h2>
+
+            <div class="risk-meter">
+              <div class="meter-label">Risk Score</div>
+              <div class="meter-bar">
+                <div id="riskMeterFill" class="meter-fill"></div>
+              </div>
+              <div id="riskPercentage" class="meter-value">0%</div>
+            </div>
+
+            <div class="grid two-columns">
+              <div class="info-box">
+                <h3>Domain Information</h3>
+                <table id="domainInfo">
+                  <tr>
+                    <td class="label">Domain:</td>
+                    <td id="domainName">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Created:</td>
+                    <td id="domainCreated">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Registrar:</td>
+                    <td id="domainRegistrar">—</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="info-box">
+                <h3>SSL & Security</h3>
+                <table>
+                  <tr>
+                    <td class="label">SSL Status:</td>
+                    <td id="sslStatus">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Certificate:</td>
+                    <td id="sslCert">—</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Issuer:</td>
+                    <td id="sslIssuer">—</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <h3>⚠️ Scam Indicators</h3>
+              <ul id="scamIndicators" class="indicators-list">
+                <li class="placeholder">No indicators detected</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>✅ Safety Recommendations</h3>
+              <ul id="recommendations" class="recommendations-list">
+                <li class="placeholder">No recommendations available</li>
+              </ul>
+            </div>
+
+            <button id="exportReportBtn" class="btn secondary">📥 Export Report</button>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2>Analysis History</h2>
+          <table id="historyTable" class="history-table">
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>Risk Score</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr>
+                <td colspan="5" class="placeholder">No analysis history</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main><script src="../assets/js/firebase-config.js"></script>
+    <script src="../assets/js/url-analysis.js"></script>
+  </body>
+</html>
+
